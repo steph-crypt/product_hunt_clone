@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path
     else
+      flash[:error] = @product.errors.full_messages
       render :new
     end
   end
